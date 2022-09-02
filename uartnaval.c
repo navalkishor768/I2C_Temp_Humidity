@@ -3,17 +3,18 @@
  *  Author: Navalkishor Kumawat
  *  Created: 16/06/2015 12:28 PM
  */
- 
 #include <avr/io.h>
 #include "uartnaval.h"
 
 
-void uart_init()
+void uart_init(int n)
 {	
 	UCSRB|=(1<<RXCIE)|(1<<RXEN)|(1<<TXEN);
 	UCSRC|=(1<<URSEL)|(1<<UCSZ1)|(1<<UCSZ0);
 	//UBRRL=0x47;//11.0592MHz for 9600
-	UBRRL=0x67;//16MHz
+	//UBRRL=0x67;//16MHz
+	UBRRL=(F_CPU/(16.0*n))-1;
+	
 }
 
 

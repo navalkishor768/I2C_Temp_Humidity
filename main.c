@@ -166,7 +166,7 @@ int main(void)
 	sbi(DDRB,0);
 	sbi(DDRB,1);
 	
-	uart_init();			// UART INITIALIZE AT 9600 AS DEFAULT BAUD RATE
+	uart_init(9600);			// UART INITIALIZE AT 9600 AS DEFAULT BAUD RATE
 	
 	timer0_init();
 	
